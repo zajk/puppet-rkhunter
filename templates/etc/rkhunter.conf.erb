@@ -39,7 +39,8 @@
 <% end -%>
 <% if defined?(@empty_logfiles) -%><% @empty_logfiles.each do |itmempty_logfiles| -%>EMPTY_LOGFILES=<%= itmempty_logfiles %>
 <% end -%><% end -%>
-<% ENABLE_TESTS %>=<%= @enable_tests %>
+<% @enable_tests.each_line do |itmenable_tests| -%>ENABLE_TESTS=<%= itmenable_tests %>
+<% end -%>
 <% if defined?(@epoch_date_cmd) -%>EPOCH_DATE_CMD=<%= @epoch_date_cmd %>
 <% end -%>
 <% if defined?(@exclude_user_fileprop_files_dirs) -%><% @exclude_user_fileprop_files_dirs.each do |itmexclude_user_fileprop_files_dirs| -%>EXCLUDE_USER_FILEPROP_FILES_DIRS=<%= itmexclude_user_fileprop_files_dirs %>
