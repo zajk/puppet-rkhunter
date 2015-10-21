@@ -100,7 +100,6 @@ class rkhunter
 )
 inherits rkhunter::params
 {
-  include epel
   include rkhunter::package
   include rkhunter::params
   include rkhunter::config
@@ -111,7 +110,6 @@ inherits rkhunter::params
   anchor { 'rkhunter::end': }
 
   Anchor['rkhunter::begin']->
-  Class['::epel']->
   Class['::rkhunter::package']->
   Class['::rkhunter::params']->
   Class['::rkhunter::config']~>
