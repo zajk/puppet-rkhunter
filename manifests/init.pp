@@ -100,9 +100,22 @@ class rkhunter
 )
 inherits rkhunter::params
 {
+  include epel
   include rkhunter::package
   include rkhunter::params
   include rkhunter::config
   include rkhunter::exec
   include rkhunter::cron
+
+  anchor { 'rkhunter::begin': }
+  anchor { 'rkhunter::end': }
+
+  Anchor['rkhunter::begin']->
+  Class['::epel']->
+  Class['::rkhunter::package']->
+  Class['::rkhunter::params']->
+  Class['::rkhunter::config']~>
+  Class['::rkhunter::exec']~>
+  Class['::rkhunter::cron']->
+  Anchor['rkhunter::end']
 }
