@@ -38,6 +38,7 @@ class rkhunter::exec
       tries       => 2, # First try failes because of /etc/passwd and /etc/group files, which are added to database after first rkhunter scan
       require     => File[$rkhunter::configDefault],
       subscribe   => Exec['RKHunter_Propupd'],
+      returns     => [ 0, 1 ],
       refreshonly => true
   }
 }
